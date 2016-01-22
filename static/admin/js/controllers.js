@@ -1,3 +1,4 @@
+var companyName;
 angular.module('starter')
     .controller("loginCtrl",function($scope,$state,$http){
         $scope.user = {};
@@ -5,9 +6,11 @@ angular.module('starter')
           $http.post("/api/login",{data : $scope.user})
             .success(function(response){
                 if(response.token){
-                localStorage.setItem('token',response.token)
-                localStorage.setItem('OwnerEmail', $scope.user.email )
-                console.log(response);
+                localStorage.setItem('token',response.token);
+                localStorage.setItem('company',response.company);
+               // console.log(response);
+               companyName =response.company;
+               console.log(companyName)
                 $state.go("home");
                 }
                 
@@ -32,17 +35,40 @@ angular.module('starter')
         };
     })
     
+    
+    
     .controller("homeCtrl",function($scope,$state,$http){
         $scope.Alluser = [];
-       // var localName = localStorage.getItem('OwnerEmail');
-       // $http.post('/api/salesman',{data:localName});
+      
         $http.get('/api/salesman')
         .success(function(response){
             console.log(response.userAll);
             $scope.Alluser = response.userAll;
+           
         })
         .error(function(err){
             
         })
        // console.log("home");
     })
+    
+    .controller('signupSalesCtrl',function($scope,$state,$http){
+        $scope.sales = {};
+       console.log("I am sales Signup");
+      // console.log(companyName);
+      $scope.sales.Admin= companyName;
+        
+        $scope.signupSales = function(){
+           // $scope.sales.Admin = companyName;
+            $http.post('/api/signupsales',{data : $scope.sales})
+                   .success(function(response){
+                       console.log(response);
+                       
+                       $state.go("home");
+                   })
+                   
+                   .error(function(err){
+                       console.log(err);
+                   });
+        };
+    });

@@ -32,6 +32,27 @@ router.post("/signup", (req:express.Request , res:express.Response)=>{
     
 });
 
+router.post('/signupsales' , (req:express.Request , res:express.Response)=>{
+    ref.createUser({
+        email: req.body.data.Email,
+        password:req.body.data.Password
+    },function(err,success){
+        if(err){
+            res.send(err);
+            
+        } else{
+            req.body.data.FirebaseToken = success.uid;
+            saveUser(req.body.data)
+                .then((userInstance)=>{
+                    res.send({status:true, user: userInstance});
+                },(err)=>{
+                    res.send({status:false, message:err});
+                
+                })
+        }     
+    });
+})
+
 router.post("/login",(req:express.Request,res:express.Response)=>{
     let user = req.body.data;
 		findUser({Email : user.email})
@@ -43,7 +64,7 @@ router.post("/login",(req:express.Request,res:express.Response)=>{
 				}	
 				if(userInstance.Password == user.password)
                 {
-					res.send({message : "Logged In successfully", token : userInstance.FirebaseToken});
+					res.send({message : "Logged In successfully", token : userInstance.FirebaseToken ,  company : userInstance.Admin});
                      abc = userInstance.Admin;
                     console.log(abc);
 				} 

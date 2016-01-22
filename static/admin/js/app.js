@@ -13,6 +13,11 @@ angular.module('starter', ['ionic'])
         templateUrl : "/admin/templates/signup.html",
         controller  : "signupCtrl" 
       })
+      .state("signupSales", {
+        url : "/signupsales",
+        templateUrl : "/admin/templates/signupSales.html",
+        controller  : "signupSalesCtrl" 
+      })
       .state("home", {
         url : "/",
         templateUrl : "/admin/templates/home.html",
@@ -21,7 +26,7 @@ angular.module('starter', ['ionic'])
       });
       
       
-      $urlRouterProvider.otherwise("/");
+      $urlRouterProvider.otherwise("/login");
       
       
       //$httpProvider.interceptors.push('httpInterceptor');

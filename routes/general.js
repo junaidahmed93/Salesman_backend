@@ -24,6 +24,25 @@ router.post("/signup", function (req, res) {
     });
     //console.log(req.body);
 });
+router.post('/signupsales', function (req, res) {
+    ref.createUser({
+        email: req.body.data.Email,
+        password: req.body.data.Password
+    }, function (err, success) {
+        if (err) {
+            res.send(err);
+        }
+        else {
+            req.body.data.FirebaseToken = success.uid;
+            dataset_1.saveUser(req.body.data)
+                .then(function (userInstance) {
+                res.send({ status: true, user: userInstance });
+            }, function (err) {
+                res.send({ status: false, message: err });
+            });
+        }
+    });
+});
 router.post("/login", function (req, res) {
     var user = req.body.data;
     dataset_1.findUser({ Email: user.email })
@@ -33,7 +52,7 @@ router.post("/login", function (req, res) {
             return;
         }
         if (userInstance.Password == user.password) {
-            res.send({ message: "Logged In successfully", token: userInstance.FirebaseToken });
+            res.send({ message: "Logged In successfully", token: userInstance.FirebaseToken, company: userInstance.Admin });
             abc = userInstance.Admin;
             console.log(abc);
         }

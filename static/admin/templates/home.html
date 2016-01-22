@@ -1,8 +1,30 @@
-
+<ion-view>
+    <ion-content>
 <br>
 <br>
-<h2>Welcome Home</h2>
+<h2>Welcome Home </h2>
 
 <ul>
     <li ng-repeat="all in Alluser">{{all.FirstName}}</li>
 </ul>
+
+        <div class="row responsive-sm header">
+          <div class="col">First Name</div>
+          <div class="col">Last Name</div>
+          <div class="col">Email</div>
+           
+        </div>
+        <div class="row responsive-sm" ng-repeat="all in Alluser">
+          <div class="col">{{all.FirstName}}</div>
+          <div class="col">{{all.LastName}}</div>
+          <div class="col">{{all.Email}}</div>
+          
+        </div>
+
+        <div class="button-bar">
+				
+				<a class="button button-calm" ui-sref = "signupSales">Add Salesman</a>
+	
+			</div>
+</ion-content>
+</ion-view>
