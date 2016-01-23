@@ -1,0 +1,36 @@
+<ion-view title="Signup Page">
+	<ion-content>
+		<form ng-submit="signupSales($event)">
+			<div class="list">
+				<label class="item item-input">
+					<span class="input-label">First Name</span>
+					<input type="text" ng-model = "sales.FirstName">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Last Name</span>
+					<input type="text" ng-model = "sales.LastName">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Email</span>
+					<input type="text"  ng-model = "sales.Email">
+				</label>
+				<label class="item item-input">
+					<span class="input-label">Password</span>
+					<input type="password" ng-model = "sales.Password">
+				</label>
+                <label class="item item-input">
+					<span class="input-label">Admin</span>
+					<input type="text" ng-model ="sales.Admin" ng-disabled="true">
+				</label>
+			</div>
+			
+			
+			<div class="button-bar">
+				<button class="button button-calm" type="submit" >Signup</button>
+				
+	
+			</div>
+           <h2>{{name}}</h2>
+		</form>
+	</ion-content>
+</ion-view>

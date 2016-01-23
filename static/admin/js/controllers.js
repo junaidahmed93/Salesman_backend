@@ -67,7 +67,7 @@ var Allusers = {};
                 localStorage.setItem('company',response.company);
                // console.log(response);
                companyName =response.company;
-               console.log(companyName)
+               console.log(companyName);
                 $state.go("dashboard");
                 
                 }

@@ -1,0 +1,119 @@
+
+  
+
+<ion-view>
+    <ion-content>
+     <div class="row header-row">
+      <div class="col">
+             <img src="../admin/img/sales.png" >      
+                </div>
+        <div class="row">
+             <h2 class="h2-exta ion-home">Admin Portal</h2>
+                    <div class="col">
+                        <h4></h4>
+                    </div>
+          </div>
+        </div>
+        
+        <div class="row header-level-two">
+            <div class="col col-20 sales-sol-grid">
+            <h3>Sales Solutions</h3>
+            </div>
+            <div class="col col-10 sales-sol-grid">
+               <ul>  
+                   <li><a href=""><div class="ion-gear-b notify"></div></a></li>
+                   <li><a href=""><div class="ion-ios-bell-outline notify"></div></a></li>
+                   <li><a href=""><div class="ion-ios-email-outline notify"></div></a></li>
+               </ul>
+            </div>
+            
+            <div class="col col-10 col-offset-50">
+                <div class="pro-pic">
+                    <span>{{displayCompanyName}}</span>
+                </div>
+            </div>
+        </div>
+        
+        <!--Mian Section-->
+        <!--left Side-->
+        <div class="row main">
+            <div class="col col-20 left-menu-col">
+                <div class="row menu-left-item row-item">
+                    <a href=""> <div class="menu-left-item-set">
+                        <span class="ion-ios-speedometer-outline left-menu-icon"></span>DashBoard</div> </a>
+                </div>
+                
+                <div class="row menu-left-item row-item">
+                    <a href=""> <div class="menu-left-item-set inner-div">
+                        <span class="ion-eye left-menu-icon"></span>Stocks</div> </a>
+                </div>
+                
+                <div class="row menu-left-item row-item">
+                    <a href=""> <div class="menu-left-item-set inner-div">
+                        <span class="ion-drag left-menu-icon"></span>Order History</div> </a>
+                </div>
+                
+                <div class="row menu-left-item row-item">
+                    <a href=""> <div class="menu-left-item-set inner-div">
+                        <span class="ion-card left-menu-icon"></span>Credit</div> </a>
+                </div>
+            </div>
+            <!--Main Section Right Side (CharJS)-->
+            <div class="col ">
+                <div class="row">
+                    <div class="col col-25  sales-grid">
+                        <div class="row">
+                            <span class="top">Top Advetise</span>
+                        </div>
+                        <div class="row">
+                        <div ng-controller="DoughnutCtrl" class="canvas-control">
+                             <canvas  id="doughnut" class="chart chart-doughnut "
+                                chart-data="data" chart-labels="labels" >
+                             </canvas> 
+                         </div>    
+                            
+                     </div>
+                    </div>
+                    <div class="col col-25  sales-grid">
+                        <div class="row ">
+                            <span class="top"> Registered Salespersons </span>
+                        </div>
+                        <div class="row sales-data">
+                            <div class="col">First Name</div>
+                             <div class="col">Last Name</div>
+                        </div>
+                        <div class="row sales-data" ng-repeat="all in Alluser">
+                            <div class="col">{{all.FirstName}}</div>
+                              <div class="col">{{all.LastName}}</div>
+                        </div>
+                    </div>
+                    <div class="col col-25  sales-grid">
+                        
+                    </div>
+                    <div class="col col-25  sales-grid">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row responsive-sm header">
+          <div class="col">First Name</div>
+          <div class="col">Last Name</div>
+          <div class="col">Email</div>
+           
+        </div>
+        <div class="row responsive-sm" ng-repeat="all in Alluser">
+          <div class="col">{{all.FirstName}}</div>
+          <div class="col">{{all.LastName}}</div>
+          <div class="col">{{all.Email}}</div>
+          
+        </div>
+
+        <div class="button-bar">
+				
+				<a class="button button-calm" ui-sref = "signupSales">Add Salesman</a>
+                <button class="button button-positive" ng-click="show()"> Show</button>
+	
+			</div>
+</ion-content>
+</ion-view>
