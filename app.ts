@@ -6,12 +6,13 @@ var GeneralRoutes = require('./routes/general');
 import express = require('express');
 import path = require('path');
 import bodyParser = require('body-parser');
+import morgan = require('morgan');
 import mongoose = require('mongoose');
 
 
 let app = express();
 app.set("port",5000);
-
+app.use(morgan('short'));
 let staticDIR = path.resolve(__dirname, "./static");
 app.use(express.static(staticDIR));
 app.use(bodyParser.json());

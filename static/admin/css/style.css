@@ -3,7 +3,10 @@
 /*.col{
     border : 2px solid red;
 }*/
-
+body{
+    background-color: #F1F2F7; 
+    border: 1px solid #E6E6E6;
+}
 .bar{
     height: 100px;
 }
@@ -33,4 +36,95 @@
  }
  .angry{
      border-radius: 50%;
+ }
+ 
+ 
+ .row{
+     text-align: center;
+ }
+ 
+ .h2-exta{
+     padding-top: 20px;
+ }
+ 
+ .right-top{
+     float: right;
+ }
+ li{
+     display: inline-flex;
+ }
+ .ion-ios-email-outline , .ion-ios-bell-outline , .ion-gear-b{
+    
+     font-size: 25px;
+     color: black;
+ }
+ .notify {
+     margin-bottom: 13px;
+     height: 30px;
+     width: 30px;
+     border-radius: 50px;
+     border-color: darkgray;
+     background-color: #EEEEEE;
+     opacity: 0.9;
+ }
+ 
+  .notify:hover{
+      background-color: #1FB5AD;
+  }   
+ 
+ .pro-pic{
+     border-radius: 25px;
+     border: 1px solid #EEEEEE;
+ }
+ a{
+     text-decoration: none;
+ }
+ 
+ .menu-left-item{
+     height: 50px;
+     
+     
+     
+ }
+ .menu-left-item-set{
+     font-size: 20px;
+     color: #1FB5AD;
+     margin-left: 50px;
+     margin-top: 5px;
+     
+ }
+ .left-menu-icon{
+     margin-right: 6px;
+ }
+ 
+.row-item{
+    border-bottom: 2px solid red;
+}
+.inner-div{
+    margin-top: 12px;
+}
+.canvas-control{
+            height: 150px;
+            width: 150px;
+ }
+ 
+.header-row, .header-level-two{
+    border-bottom: 2px solid #E6E6E6
+}
+ .top{
+     text-align: center;
+     margin-left: 30px;
+ }
+ .sales-grid{
+     
+     border: 10px solid #F1F2F7;
+ }
+ 
+ .sales-sol-grid{
+     border-right: 1px solid #E6E6E6;
+     margin-top: 5px;
+ }
+ 
+ .sales-data{
+     border: 1px solid #E6E6E6;
  }

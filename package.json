@@ -9,10 +9,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "angular-chart.js": "^0.8.8",
     "body-parser": "^1.14.2",
+    "bootstrap": "^3.3.6",
+    "chart.js": "^1.0.2",
     "express": "^4.13.3",
     "firebase": "^2.3.2",
     "mongoose": "^4.3.6",
+    "morgan": "^1.6.1",
     "q": "^1.4.1"
   }
 }

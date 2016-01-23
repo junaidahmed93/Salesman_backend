@@ -1,5 +1,5 @@
-angular.module('starter', ['ionic'])
-  .config(function($stateProvider, $urlRouterProvider,$httpProvider ){
+var app = angular.module('starter', ['ionic' ,"chart.js"]);
+  app.config(function($stateProvider, $urlRouterProvider,$httpProvider ){
     
     
     $stateProvider
@@ -19,28 +19,35 @@ angular.module('starter', ['ionic'])
         controller  : "signupSalesCtrl" 
       })
       .state("home", {
-        url : "/",
+        url : "/home",
         templateUrl : "/admin/templates/home.html",
         controller  : "homeCtrl",
+        loginCompulsory : true
+        
+      })
+      .state("dashboard", {
+        url : "/dashboard",
+        templateUrl : "/admin/templates/dashboard.html",
+        controller  : "dashboardCtrl",
         loginCompulsory : true
       });
       
       
-      $urlRouterProvider.otherwise("/login");
+      $urlRouterProvider.otherwise("/home");
       
       
       //$httpProvider.interceptors.push('httpInterceptor');
-  })
-  .run(function($rootScope, $state){
+  });
+  app.run(function($rootScope, $state){
     
     $rootScope.$on("$stateChangeStart", function(event, toState){
       var firebaseLocalToken = localStorage.getItem("token");
         
       if(toState.loginCompulsory && !firebaseLocalToken){ 
         event.preventDefault();
-        $state.go("login");
+        $state.go("home");
       }
         
     });
     
-  })
+  });

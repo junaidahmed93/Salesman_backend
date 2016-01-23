@@ -7,3 +7,4 @@
 /// <reference path="body-parser/body-parser.d.ts" />
 /// <reference path="q/Q.d.ts" />
 /// <reference path="firebase/firebase.d.ts" />
+/// <reference path="morgan/morgan.d.ts" />
